@@ -56,7 +56,7 @@ const m: ExtensionModule = () => {
       const value = trim(text, '\'"')
 
       // prompt for template
-      const replacer = await window.showQuickPick(REFACTOR_TEMPLATES(keypath), {
+      const replacer = await window.showQuickPick(REFACTOR_TEMPLATES(keypath, options.languageId), {
         placeHolder: i18n.t('prompt.replace_text_as'),
       })
 

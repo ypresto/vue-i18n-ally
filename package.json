@@ -14,7 +14,9 @@
     "workspaceContains:package.json",
     "onLanguage:vue",
     "onLanguage:javascript",
-    "onLanguage:typescript"
+    "onLanguage:typescript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescriptreact"
   ],
   "keywords": [
     "vue",

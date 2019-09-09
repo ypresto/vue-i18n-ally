@@ -22,6 +22,7 @@ class ExtractProvider implements CodeActionProvider {
       filepath: editor.document.fileName,
       text,
       range: selection,
+      languageId: document.languageId,
     }
 
     return [{

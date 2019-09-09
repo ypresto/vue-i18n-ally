@@ -6,6 +6,7 @@ export const SUPPORTED_FRAMEWORKS = [
   'vuex-i18n',
   '@panter/vue-i18next',
   'nuxt-i18n',
+  'react-i18next',
 ]
 
 export const SUPPORTED_LANG_IDS = [
@@ -13,17 +14,21 @@ export const SUPPORTED_LANG_IDS = [
   'vue-html',
   'javascript',
   'typescript',
+  'javascriptreact',
+  'typescriptreact',
 ]
 
 // for visualize the regex, you can use https://regexper.com/
 // eslint-disable-next-line no-useless-escape
-export const KEY_REG = /(?:i18n[ (]path=|v-t=['"`{]|(?:this\.|\$|i18n\.)(?:(?:d|n)\(.*?, ?|(?:t|tc|te)\())['"`]([\w\d\. -\[\]]+?)['"`]/g
+export const KEY_REG = /(?:i18n[ (]path=|v-t=['"`{]|i18nKey=|\bt\(|(?:this\.|\$|i18n\.|i18next\.)(?:(?:d|n)\(.*?, ?|(?:t|tc|te)\())['"`]([\w\d\. -\[\]]+?)['"`]/g
 
-export const REFACTOR_TEMPLATES = (keypath: string, languageId?: string) => [
+export const REFACTOR_TEMPLATES = (keypath: string, languageId: string) => [
   `{{$t('${keypath}')}}`,
   `this.$t('${keypath}')`,
   `$t("${keypath}")`,
   `i18n.t('${keypath}')`,
+  `i18next.t('${keypath}')`,
+  ...(['javascriptreact', 'typescriptreact'].includes(languageId) ? [`t('${keypath}')`] : []),
   keypath,
 ]
 

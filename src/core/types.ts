@@ -137,6 +137,7 @@ export interface ExtractTextOptions {
   filepath: string
   text: string
   range: Range
+  languageId: string
 }
 
 export type Node = LocaleNode | LocaleRecord | LocaleTree
